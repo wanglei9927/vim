@@ -1,15 +1,10 @@
 source ~/.vim/bundles.vim
-
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
-
 " 复制到系统剪切板
 let mapleader=" "
-
 " vim中英文切换配置
 let g:XkbSwitchEnabled = 1
-
-
 set encoding=utf-8
 
 map R :source $MYVIMRC<CR>
