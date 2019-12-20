@@ -112,20 +112,9 @@ set shiftwidth=4    " indent width
 " set smarttab
 set expandtab       " expand tab to space
 
-" autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
-" autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-" autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-" autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
-" autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
 
-" syntax support
-" autocmd Syntax javascript set syntax=jquery   " JQuery syntax support
-" js
-" let g:html_indent_inctags = "html,body,head,tbody"
-" let g:html_indent_script1 = "inc"
-" let g:html_indent_style1 = "inc"
 
 "-----------------
 " Plugin settings
@@ -209,42 +198,9 @@ let NERDSpaceDelims=1
 " nmap <D-/> :NERDComToggleComment<cr>
 let NERDCompactSexyComs=1
 
-" ZenCoding
-" let g:user_emmet_expandabbr_key='<C-j>'
 
-" powerline
-"let g:Powerline_symbols = 'fancy'
-
-" NeoComplCache
-" let g:neocomplcache_enable_at_startup=1
-" let g:neoComplcache_disableautocomplete=1
-" let g:neocomplcache_enable_underbar_completion = 1
-" let g:neocomplcache_enable_camel_case_completion = 1
-" set g:neocomplcache_enable_smart_case=1
-" set g:neocomplcache_min_syntax_length = 3
-" set g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" set completeopt-=preview
-
-" 这里的插件已经被卸载了
-" imap <C-k> <Plug>(neocomplcache_snippets_force_expand)
-" map <C-k> <Plug>(neocomplcache_snippets_force_expand)
-" map <C-l> <Plug>(neocomplcache_snippets_force_jump)
-" map <C-l> <Plug>(neocomplcache_snippets_force_jump)
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType c setlocal omnifunc=ccomplete#Complete
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
-
-" SuperTab
-" let g:SuperTabDefultCompletionType='context'
-let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
-let g:SuperTabRetainCompletionType=2
+" powerline 放开了会乱码
+" let g:Powerline_symbols = 'fancy'
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
