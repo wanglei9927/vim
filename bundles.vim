@@ -68,6 +68,7 @@ Bundle 'dgryski/vim-godef'
 Bundle 'Blackrush/vim-gocode'
 
 "------- FPs ------
+" 括号设置
 Bundle 'kien/rainbow_parentheses.vim'
 
 "--------------
@@ -83,5 +84,10 @@ Bundle 'fisadev/fisa-vim-colorscheme'
 
 " vim json
 Bundle 'elzr/vim-json'
+" python
+" 格式化
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'w0rp/ale'
+
 
 filetype plugin indent on     " required!

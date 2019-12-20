@@ -6,7 +6,7 @@ let mapleader=" "
 " vim中英文切换配置
 let g:XkbSwitchEnabled = 1
 set encoding=utf-8
-
+set scrolloff=5
 map R :source $MYVIMRC<CR>
 map ; :
 map s <nop>
@@ -115,6 +115,7 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=
 " Plugin settings
 "-----------------
 " Rainbow parentheses for Lisp and variants
+" 括号设置
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -134,6 +135,12 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
 
 " tabbar
@@ -271,3 +278,86 @@ if has("gui_running")
     map <D-9> 9gt
     map <D-0> :tablast<CR>
 endif
+
+"python 配置
+let python_highlight_all=1
+au Filetype python set tabstop=4
+au Filetype python set softtabstop=4
+au Filetype python set shiftwidth=4
+au Filetype python set textwidth=79
+au Filetype python set expandtab
+au Filetype python set autoindent
+au Filetype python set fileformat=unix
+autocmd Filetype python set foldmethod=indent
+autocmd Filetype python set foldlevel=99
+
+" 格式化代码配置
+nnoremap <F2> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+" 自动编译代码
+map <F1> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+        exec "w"
+        if &filetype == 'c'
+                exec "!g++ % -o %<"
+                exec "!time ./%<"
+        elseif &filetype == 'cpp'
+                exec "!g++ % -o %<"
+                exec "!time ./%<"
+        elseif &filetype == 'java'
+                exec "!javac %"
+                exec "!time java %<"
+        elseif &filetype == 'sh'
+                :!time bash %
+        elseif &filetype == 'python'
+                exec "!clear"
+                exec "!time python3 %"
+        elseif &filetype == 'html'
+                exec "!firefox % &"
+        elseif &filetype == 'go'
+                " exec "!go build %<"
+                exec "!time go run %"
+        elseif &filetype == 'mkd'
+                exec "!~/.vim/markdown.pl % > %.html &"
+                exec "!firefox %.html &"
+        endif
+endfunc
+
+" 代码检查工具
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+" 下面这个东西开启后左侧会有一条边，很难看
+" let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+
+
+" 代码自动检查
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
+" ycm的配置
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-z>'
+set completeopt=menu,menuone
+
+noremap <c-z> <NOP>
+
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
