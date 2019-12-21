@@ -70,7 +70,6 @@ Bundle 'Blackrush/vim-gocode'
 "------- FPs ------
 " 括号设置
 Bundle 'kien/rainbow_parentheses.vim'
-
 "--------------
 " Color Schemes
 "--------------
