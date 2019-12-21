@@ -1,12 +1,14 @@
 source ~/.vim/bundles.vim
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+" 自定义配置开始
 " 复制到系统剪切板
 let mapleader=" "
 " vim中英文切换配置
 let g:XkbSwitchEnabled = 1
 set encoding=utf-8
 set scrolloff=5
+set ic
 map R :source $MYVIMRC<CR>
 map ; :
 map s <nop>
@@ -32,6 +34,9 @@ map <right> :vertical resize-5<CR>
 map tu :tabe<CR>
 map th :-tabnext<CR>
 map tl :+tabnext<CR>
+
+" Golang 的自动导包
+nmap gi :GoImports<cr>
 
 " 修改光标的样式
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
