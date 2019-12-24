@@ -19,9 +19,9 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
-" snippets
+" snippets 自定义代码生成插件
 Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+Bundle 'honza/vim-snippetsnoh'
 "------ snipmate dependencies -------
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -43,7 +43,20 @@ Bundle 'nathanaelkane/vim-indent-guides'
 "--------------
 " IDE features
 "--------------
+" 可以快速对齐的插件
+Bundle 'junegunn/vim-easy-align'
+" 可以在导航目录中看到 git 版本信息
+Bundle 'Xuyuanp/nerdtree-git-plugin'
+" Vim状态栏插件，包括显示行号，列号，文件类型，文件名，以及Git状态
+Bundle 'vim-airline/vim-airline'
+" 有道词典在线翻译
+Bundle 'ianva/vim-youdao-translater'
+" 可以在文档中显示 git 信息
+Bundle 'airblade/vim-gitgutter'
+
 Bundle 'scrooloose/nerdtree'
+" 可以使 nerdtree 的 tab 更加友好些
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'humiaozuzu/TabBar'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
@@ -80,6 +93,18 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'fisadev/fisa-vim-colorscheme'
+
+" 配色方案
+" colorscheme neodark
+Bundle 'KeitaNakamura/neodark.vim'
+" colorscheme monokai
+" 插件重复了
+" Bundle 'crusoexia/vim-monokai'
+" colorscheme github
+Bundle 'acarapetis/vim-colors-github'
+" colorscheme one
+Bundle 'rakr/vim-one'
+
 
 " vim json
 Bundle 'elzr/vim-json'

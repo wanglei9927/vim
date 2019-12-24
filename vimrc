@@ -14,7 +14,8 @@ map ; :
 map s <nop>
 map S :w<CR>
 map Q :q<CR>
-
+" 设置取消搜索结果高亮
+map q :noh<CR>
 map sl :set splitright<CR>:vsplit<CR>
 map sh :set nosplitright<CR>:vsplit<CR>
 map sk :set nosplitbelow<CR>:split<CR>
@@ -69,8 +70,9 @@ syntax on
 "--------
 " color scheme
 set background=dark
-color solarized
-
+"color solarized
+set termguicolors
+colorscheme one
 " highlight current line
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
@@ -157,11 +159,16 @@ hi Tb_Changed guifg=green ctermfg=green
 hi Tb_VisibleNormal ctermbg=252 ctermfg=235
 hi Tb_VisibleChanged guifg=green ctermbg=252 ctermfg=white
 
+nmap <c-x> :Tbbd<cr>
+nmap H :Tbbp<cr>
+nmap L :Tbbn<cr>
+
 " easy-motion
 let g:EasyMotion_leader_key = '<Leader>'
 
 " Tagbar
-let g:tagbar_left=1
+" 设置tagbar的位置 0 右边 1 左边
+let g:tagbar_left=0
 let g:tagbar_width=30
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
@@ -198,7 +205,7 @@ let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 " let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
-let NERDTreeWinPos = "right"
+let NERDTreeWinPos = "left"
 
 " nerdcommenter
 let NERDSpaceDelims=1
@@ -366,3 +373,67 @@ let g:ycm_semantic_triggers =  {
 			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
 			\ 'cs,lua,javascript': ['re!\w{2}'],
 			\ }
+
+" markdwon 的快捷键
+map <silent> <F3> <Plug>MarkdownPreview
+map <silent> <F4> <Plug>StopMarkdownPreview
+
+" tab 标签页切换快捷键
+:nn <Leader>1 1gt
+:nn <Leader>2 2gt
+:nn <Leader>3 3gt
+:nn <Leader>4 4gt
+:nn <Leader>5 5gt
+:nn <Leader>6 6gt
+:nn <Leader>7 7gt
+:nn <Leader>8 8gt
+:nn <Leader>9 8gt
+:nn <Leader>0 :tablast<CR>
+
+"==============================================================================
+"  nerdtree-git-plugin 插件
+"==============================================================================
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+let g:NERDTreeShowIgnoredStatus = 1
+
+
+" majutsushi/tagbar 插件打开关闭快捷键
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
