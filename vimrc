@@ -58,7 +58,6 @@ set wildmenu
 
 
 
-
 " enable filetype dectection and ft specific plugin/indent
 filetype plugin indent on
 
@@ -275,8 +274,8 @@ if has("gui_running")
     "set transparency=30
     set guifont=Monaco:h18
     set showtabline=2
-    set columns=140
-    set lines=40
+    set columns=180
+    set lines=60
     noremap <D-M-Left> :tabprevious<cr>
     noremap <D-M-Right> :tabnext<cr>
     map <D-1> 1gt
